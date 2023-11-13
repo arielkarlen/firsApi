@@ -26,7 +26,7 @@ namespace Customers_API.Controllers
         {
             throw new NotImplementedException();
         }
-        [HttpPost("{id}")]
+        [HttpPost]
         public async Task<CustomerDto> CreateCustomer(CreateCustomerDto customer)
         {
             throw new NotImplementedException();
