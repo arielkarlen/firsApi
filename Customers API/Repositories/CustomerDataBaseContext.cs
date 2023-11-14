@@ -17,6 +17,14 @@ namespace Customers_API.Repositories
             return await Customers.FirstAsync(x => x.Id == id);
         }
 
+        public async Task<bool> Delete(long id)
+        {
+            var entity = await Get(id);
+            Customers.Remove(entity);
+            SaveChanges();
+            return true;
+        }
+
         public async Task<CustomerEntity> Add(CreateCustomerDto customerDto) { 
             CustomerEntity entity = new CustomerEntity() 
             {
