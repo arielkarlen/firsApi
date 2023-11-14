@@ -18,10 +18,13 @@ namespace Customers_API.Controllers
         }
         //Get All
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CustomerDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<CustomerDto>))]
         public async Task<IActionResult> GetCustomer()
         {
-            throw new NotImplementedException();
+            var result = _customerDataBaseContext.Customers
+                .Select(c=>c.ToDto()).ToList();
+
+            return new OkObjectResult(result);
         }
         //Get by ID}
        [HttpGet("{id}")]
@@ -32,12 +35,13 @@ namespace Customers_API.Controllers
             CustomerEntity result = await _customerDataBaseContext.Get(id);
             return new OkObjectResult(result.ToDto());
         }
-
+        //Delete by ID}
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
         public async Task<IActionResult> DeleteCustomer(long id)
         {
-            throw new NotImplementedException();
+            var result = await _customerDataBaseContext.Delete(id);
+            return new OkObjectResult(result);
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CustomerDto))]
