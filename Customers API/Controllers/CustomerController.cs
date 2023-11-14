@@ -1,4 +1,5 @@
 ﻿using Customers_API.Dtos;
+using Customers_API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,6 +9,13 @@ namespace Customers_API.Controllers
     [Route("api/[controller]")] //Al poner controller, automaticamente toma el nombre del controlador
     public class CustomerController : Controller
     {
+
+        private readonly CustomerDataBaseContext _customerDataBaseContext;
+
+        public CustomerController(CustomerDataBaseContext customerDataBaseContext)
+        { 
+        _customerDataBaseContext = customerDataBaseContext;
+        }
         //Get All
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CustomerDto))]
@@ -21,8 +29,8 @@ namespace Customers_API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetCustomer( long id)
         {
-            var vacio = new CustomerDto();
-            return new OkObjectResult(vacio);
+            CustomerEntity result = await _customerDataBaseContext.Get(id);
+            return new OkObjectResult(result.ToDto());
         }
 
         [HttpDelete("{id}")]
@@ -35,8 +43,8 @@ namespace Customers_API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CustomerDto))]
         public async Task<IActionResult> CreateCustomer(CreateCustomerDto customer)
         {
-            var vacio = new CustomerDto();
-            return new CreatedResult($"https://localhost:7105/api/customer/{vacio.Id}", null);
+          CustomerEntity result = await _customerDataBaseContext.Add(customer);
+            return new CreatedResult($"https://localhost:7105/api/customer/{result.Id}", null);
         }
 
         [HttpPut("{id}")]

@@ -30,3 +30,17 @@ C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\obj\Debug\net
 C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\obj\Debug\net6.0\Customers API.pdb
 C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\obj\Debug\net6.0\Customers API.genruntimeconfig.cache
 C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\obj\Debug\net6.0\ref\Customers API.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\ariel.karlen\Documents\Cursos\Customers API\Customers API\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
