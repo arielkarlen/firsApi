@@ -42,6 +42,13 @@ namespace Customers_API.Repositories
             return await Get(response.Entity.Id ?? throw new Exception("No se podido guardar"));
         }
 
+        public async Task<bool> Update(CustomerEntity customerEntity)
+        {
+            Customers.Update(customerEntity); 
+            await SaveChangesAsync();
+            return true;
+        }
+
     }
 
     public class CustomerEntity
