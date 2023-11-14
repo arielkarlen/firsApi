@@ -1,4 +1,5 @@
-﻿using Customers_API.Dtos;
+﻿using Customers_API.CasosdeUso;
+using Customers_API.Dtos;
 using Customers_API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +12,12 @@ namespace Customers_API.Controllers
     {
 
         private readonly CustomerDataBaseContext _customerDataBaseContext;
+        private readonly IUpdateCustomersUsecase _updateCustomersUsecase;
 
-        public CustomerController(CustomerDataBaseContext customerDataBaseContext)
+        public CustomerController(CustomerDataBaseContext customerDataBaseContext, IUpdateCustomersUsecase updateCustomersUsecase)
         { 
-        _customerDataBaseContext = customerDataBaseContext;
+            _customerDataBaseContext = customerDataBaseContext;
+            _updateCustomersUsecase = updateCustomersUsecase;
         }
         //Get All
         [HttpGet]
@@ -51,12 +54,15 @@ namespace Customers_API.Controllers
             return new CreatedResult($"https://localhost:7105/api/customer/{result.Id}", null);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut()]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CustomerDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> UpdateCustomer(CustomerDto customer)
         {
-            throw new NotImplementedException();
+            CustomerDto? result = await _updateCustomersUsecase.Execute(customer);
+            if (result == null)
+                return new NotFoundResult();
+            return new OkObjectResult(result);
         }
 
 

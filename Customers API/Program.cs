@@ -1,3 +1,4 @@
+using Customers_API.CasosdeUso;
 using Customers_API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<CustomerDataBaseContext>(mySqlBuilder =>
     mySqlBuilder.UseMySql(builder.Configuration.GetConnectionString("ConnectionDb"),
                      new MySqlServerVersion(new Version(8, 0, 23))); // Puedes cambiar la versión según la versión de tu servidor MySQL
 });
+
+builder.Services.AddScoped<IUpdateCustomersUsecase, UpdateCustomerUseCase>();
 
 var app = builder.Build();
 
